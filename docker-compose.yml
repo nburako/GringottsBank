@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  gringottsbank.api:
+    image: ${DOCKER_REGISTRY-}gringottsbankapi
+    build:
+      context: .
+      dockerfile: src/Services/GringottsBank.Api/Dockerfile
+    environment:
+      DBServer: "postgres"
+    depends_on:
+      - postgres
+    networks:
+      - gringottsbank
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - gringottsbank
+    restart: unless-stopped
+networks:
+  gringottsbank:
+    driver: bridge

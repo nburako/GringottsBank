@@ -17,7 +17,7 @@ Because project is dockerized, you don't need any other setup.
 Run project and SwaggerUI will welcome you. Endpoints can be seen and triggered there.
 
 ## Design
-This is a .NET 5 Web API application. 
+This is a .NET 5 Web API application. It has code first approach and uses Entity Framework with PostgreSQL.
 I used **Domain Driven Design** because banking and payment systems are tightly bound to business rules. 
 I applied **Command-Query Separation *(CQRS)*** Pattern to be more suitable for expansion with vertical slice design. 
 **Swagger** was used to further document the endpoints. **Fluent Validation** was implemented for an error-proof system. 
